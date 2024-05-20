@@ -24,8 +24,8 @@ class HomeScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Text(
-                "Welcome Dandi",
-                style: Theme.of(context).textTheme.titleMedium,
+                "Welcome to Cine Ticket",
+                style: Theme.of(context).textTheme.titleLarge,
               ),
             ),
             const SizedBox(height: 8),

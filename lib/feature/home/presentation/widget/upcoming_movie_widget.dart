@@ -5,6 +5,8 @@ import 'package:flutter_application_1/feature/home/model/movie_model.dart';
 class UpcomingMovieWidget extends StatelessWidget {
   const UpcomingMovieWidget({super.key});
 
+  get upcoming => null;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(

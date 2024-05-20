@@ -13,8 +13,11 @@ class NowPlayingMovieWidget extends StatefulWidget {
 
 class _NowPlayingMovieWidgetState extends State<NowPlayingMovieWidget> {
   int centerIndex = 0;
+
+  get nowPlayingMovie => null;
   @override
   Widget build(BuildContext context) {
+    var upcoming;
     return SizedBox(
       width: MediaQuery.of(context).size.width,
       height: 400,
