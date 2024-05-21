@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_1/core/theme/app_color.dart';
+import 'package:flutter_application_1/core/utils/date_time_extension.dart';
+import 'package:flutter_application_1/feature/movie_booking/model/presentation/widget/date_widget.dart';
 import 'package:flutter_application_1/feature/movie_booking/model/presentation/widget/seat_widget.dart';
+import 'package:flutter_application_1/feature/movie_booking/model/presentation/widget/time_widget.dart';
 
 class MovieBookingScreen extends StatefulWidget {
   const MovieBookingScreen({super.key});
@@ -117,7 +120,129 @@ class _MovieBookingScreenState extends State<MovieBookingScreen> {
                 ),
               );
             },
-          )
+          ),
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.vertical(
+                  top: Radius.circular(48),
+                ),
+                color: Theme.of(context).scaffoldBackgroundColor,
+              ),
+              padding: const EdgeInsets.fromLTRB(24, 24, 24, 48),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Select Date",
+                    style: Theme.of(context).textTheme.bodyLarge,
+                  ),
+                  ValueListenableBuilder<DateTime>(
+                    valueListenable: selectedDate,
+                    builder: (context, value, _) {
+                      return SizedBox(
+                        height: 96,
+                        width: MediaQuery.of(context).size.width,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          children: List.generate(
+                            14,
+                            (index) {
+                              final date = DateTime.now().add(
+                                Duration(days: index),
+                              );
+                              return InkWell(
+                                onTap: () {
+                                  selectedDate.value = date;
+                                },
+                                child: DateWidget(
+                                  date: date,
+                                  isSelected:
+                                      value.simpleDate == date.simpleDate,
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                  ValueListenableBuilder<TimeOfDay?>(
+                    valueListenable: selectedTime,
+                    builder: (context, value, _) {
+                      return SizedBox(
+                        height: 48,
+                        width: MediaQuery.of(context).size.width,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          children: List.generate(
+                            8,
+                            (index) {
+                              final time = TimeOfDay(
+                                hour: 10 + (index * 2),
+                                minute: 0,
+                              );
+                              return InkWell(
+                                onTap: () {
+                                  selectedTime.value = time;
+                                },
+                                child: TimeWidget(
+                                  time: time,
+                                  isSelected: value == time,
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                  const SizedBox(height: 8),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Total Price",
+                              style: Theme.of(context).textTheme.bodyLarge,
+                            ),
+                            const SizedBox(height: 16),
+                            ValueListenableBuilder<List<String>>(
+                              valueListenable: selectedSeat,
+                              builder: (context, value, _) {
+                                return Text(
+                                  "\৳${value.length * 400}",
+                                  style:
+                                      Theme.of(context).textTheme.headlineSmall,
+                                );
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                      Expanded(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: AppColor.primaryColor,
+                            borderRadius: BorderRadius.circular(32),
+                          ),
+                          padding: const EdgeInsets.all(16),
+                          alignment: Alignment.center,
+                          child: Text(
+                            "Book Now",
+                            style: Theme.of(context).textTheme.headlineSmall,
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );

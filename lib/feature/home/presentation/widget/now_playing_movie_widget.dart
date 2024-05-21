@@ -104,7 +104,7 @@ class __NowPlayingItemState extends State<_NowPlayingItem> {
                           style: Theme.of(context)
                               .textTheme
                               .bodyLarge
-                              ?.copyWith(color: AppColor.primaryColor),
+                              ?.copyWith(color: AppColor.white),
                           maxLines: 1,
                           textAlign: TextAlign.center,
                         ),
