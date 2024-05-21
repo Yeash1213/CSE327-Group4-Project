@@ -47,6 +47,10 @@ class HomeScreen extends StatelessWidget {
               child: SectionTitleWidget(title: "Category"),
             ),
             const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+              child: CategoryWidget(),
+            ),
+            const Padding(
               padding: EdgeInsets.symmetric(horizontal: 24),
               child: SectionTitleWidget(title: "Now Playing"),
             ),

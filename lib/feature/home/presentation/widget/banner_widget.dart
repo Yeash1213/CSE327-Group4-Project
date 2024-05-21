@@ -11,11 +11,10 @@ class BannerWidget extends StatefulWidget {
 class _BannerWidgetState extends State<BannerWidget> {
   int showedIndex = 0;
 
-  final banners = [
+  final banners = <String>[
     "assets/banner_1.jpeg",
     "assets/banner_2.jpeg",
     "assets/banner_3.jpeg",
-    "assets/banner_4.jpeg",
   ];
 
   @override

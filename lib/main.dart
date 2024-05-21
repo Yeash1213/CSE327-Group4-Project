@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Movie UI",
+      title: "Cine Ticket",
 
       /// by using this setting, UI will automatic support dark and light mode
       theme: AppTheme.light,
