@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/feature/home/model/movie_model.dart';
-
+/// The UpcomingMovieWidget class displays a carousel of upcoming movies with their titles and images.
 class UpcomingMovieWidget extends StatelessWidget {
   const UpcomingMovieWidget({super.key});
 
