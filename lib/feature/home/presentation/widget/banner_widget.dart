@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-
+/// The above code defines a StatefulWidget called BannerWidget with a state class _BannerWidgetState
+/// that tracks the showedIndex.
 class BannerWidget extends StatefulWidget {
   const BannerWidget({super.key});
 
