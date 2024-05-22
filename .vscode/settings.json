@@ -1,3 +1,4 @@
 {
-    "cmake.sourceDirectory": "/Users/yashzudan/wafia/flutter_application_1/linux"
+    "cmake.sourceDirectory": "/Users/yashzudan/wafia/flutter_application_1/linux",
+    "docwriter.style": "Auto-detect"
 }

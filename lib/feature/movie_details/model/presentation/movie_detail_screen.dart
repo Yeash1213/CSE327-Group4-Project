@@ -5,9 +5,13 @@ import 'package:flutter_application_1/core/theme/app_color.dart';
 import 'package:flutter_application_1/feature/home/model/movie_model.dart';
 import 'package:flutter_application_1/feature/movie_details/model/presentation/widget/movie_info_widget.dart';
 
+/// The above class is a Dart widget for displaying details of a movie in a screen.
 class MovieDetailScreen extends StatelessWidget {
   const MovieDetailScreen({super.key});
-
+  
+  /// The `@override` annotation in Dart is used to indicate that a method is overriding a method from a
+  /// superclass. In this case, the `build` method in the `MovieDetailScreen` class is overriding the
+  /// `build` method from the `StatelessWidget` class.
   @override
   Widget build(BuildContext context) {
     final movie = ModalRoute.of(context)?.settings.arguments as Movie;
@@ -30,11 +34,17 @@ class MovieDetailScreen extends StatelessWidget {
           style: Theme.of(context).textTheme.headlineSmall,
         ),
       ),
+      
+        /// The `body` property in the `Scaffold` widget of the `MovieDetailScreen` class is defining the
+      /// main content of the screen. In this case, it is setting the body of the screen to a
+      /// `SingleChildScrollView` widget with padding of 24 pixels on all sides.
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(24),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
+                   /// This part of the code is creating a layout for displaying an image related to the movie
+         /// within a `SizedBox` widget. Here's a breakdown of what each component does:
           children: [
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.4,
@@ -53,6 +63,7 @@ class MovieDetailScreen extends StatelessWidget {
                       ),
                     ),
                   ),
+                  
                   const SizedBox(width: 32),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -95,6 +106,8 @@ class MovieDetailScreen extends StatelessWidget {
           ],
         ),
       ),
+       /// The code block you provided is defining a floating action button that allows users to navigate
+      /// to the movie booking screen when tapped. Here's a breakdown of what each component does:
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: InkWell(
         onTap: () {
