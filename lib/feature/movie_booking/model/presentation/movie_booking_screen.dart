@@ -3,12 +3,16 @@ import 'package:flutter/services.dart';
 import 'package:flutter_application_1/core/theme/app_color.dart';
 import 'package:flutter_application_1/feature/movie_booking/model/presentation/widget/seat_widget.dart';
 
+/// The above class is a StatefulWidget for a movie booking screen in Dart.
 class MovieBookingScreen extends StatefulWidget {
   const MovieBookingScreen({super.key});
 
   @override
   State<MovieBookingScreen> createState() => _MovieBookingScreenState();
 }
+
+/// The `_MovieBookingScreenState` class is a state class that extends `State<MovieBookingScreen>`.
+/// Inside this class, there are three member variables:
 
 class _MovieBookingScreenState extends State<MovieBookingScreen> {
   final selectedSeat = ValueNotifier<List<String>>([]);
