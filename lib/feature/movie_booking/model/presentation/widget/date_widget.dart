@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/theme/app_color.dart';
 import 'package:flutter_application_1/core/utils/date_time_extension.dart';
-
+/// The `DateWidget` class in Dart is a stateless widget that displays a date with optional selection
+/// styling.
 class DateWidget extends StatelessWidget {
   const DateWidget({
     super.key,
     required this.date,
     this.isSelected = false,
   });
-
+  /// The lines `final DateTime date;` and `final bool isSelected;` in the `DateWidget` class are
+  /// declaring two final instance variables within the class.
   final DateTime date;
   final bool isSelected;
-
+/// This Dart function builds a widget with animated containers and text elements based on the
+ /// isSelected property.
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
