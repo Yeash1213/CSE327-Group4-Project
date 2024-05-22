@@ -121,6 +121,12 @@ class _MovieBookingScreenState extends State<MovieBookingScreen> {
               );
             },
           ),
+          /// The above Dart code is creating a UI layout for a booking screen. It includes a selection
+          /// of date and time components using `ValueListenableBuilder` to update the selected date and
+          /// time. It also displays the total price based on the selected seats and provides a "Book
+          /// Now" button for booking. The layout is designed using `Container`, `Column`, `Row`,
+          /// `Text`, `ListView`, `InkWell`, and various styling properties like `decoration`,
+          /// `padding`, `alignment`, and `TextStyle`.
           Expanded(
             child: Container(
               decoration: BoxDecoration(
