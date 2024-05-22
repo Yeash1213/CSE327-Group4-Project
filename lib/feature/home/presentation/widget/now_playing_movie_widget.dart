@@ -4,6 +4,8 @@ import 'package:flutter_application_1/core/route/app_route_name.dart';
 import 'package:flutter_application_1/core/theme/app_color.dart';
 import 'package:flutter_application_1/feature/home/model/movie_model.dart';
 
+/// The `NowPlayingMovieWidget` class is a StatefulWidget that displays a carousel of now playing movies
+/// with a center item that is enlarged.
 class NowPlayingMovieWidget extends StatefulWidget {
   const NowPlayingMovieWidget({super.key});
 
@@ -42,7 +44,11 @@ class _NowPlayingMovieWidgetState extends State<NowPlayingMovieWidget> {
     );
   }
 }
-
+/// The `_NowPlayingItem` class is a `StatefulWidget` that represents an item displayed in the carousel
+/// of now playing movies. It takes two parameters in its constructor:
+/// 1. `movie`: A required parameter of type `Movie` which represents the movie data to be displayed.
+/// 2. `isCenter`: An optional parameter of type `bool` with a default value of `false`, indicating
+/// whether the item is currently at the center of the carousel.
 class _NowPlayingItem extends StatefulWidget {
   const _NowPlayingItem({
     required this.movie,
@@ -55,7 +61,8 @@ class _NowPlayingItem extends StatefulWidget {
   @override
   State<_NowPlayingItem> createState() => __NowPlayingItemState();
 }
-
+/// The __NowPlayingItemState class in Dart represents a widget for displaying movie details with an
+/// option to navigate to the movie detail screen upon tapping.
 class __NowPlayingItemState extends State<_NowPlayingItem> {
   @override
   Widget build(BuildContext context) {

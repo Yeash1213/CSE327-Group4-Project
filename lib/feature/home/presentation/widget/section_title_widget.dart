@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/theme/app_color.dart';
-
+/// The `SectionTitleWidget` class in Dart represents a widget for displaying a section title with an
+/// optional suffix text that can be clicked.
 class SectionTitleWidget extends StatelessWidget {
   const SectionTitleWidget({
     super.key,
