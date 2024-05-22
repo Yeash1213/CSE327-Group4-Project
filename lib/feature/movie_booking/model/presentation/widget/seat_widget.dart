@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/theme/app_color.dart';
 
+/// The SeatWidget class is a stateless widget in Dart that represents a seat with customizable
+/// properties such as seat number, dimensions, selection status, and availability.
 class SeatWidget extends StatelessWidget {
   const SeatWidget({
     super.key,
@@ -11,14 +13,28 @@ class SeatWidget extends StatelessWidget {
     this.isSelected = false,
     this.isAvailable = true,
   });
-
+  
+/// These lines are declaring the properties (variables) of the `SeatWidget` class in Dart. Here's a
+/// breakdown of each property:
   final void Function()? onTap;
   final String seatNumber;
   final double width;
   final double height;
   final bool isSelected;
   final bool isAvailable;
-
+ /// This function builds a widget representing a seat with specific styling based on availability and
+ /// selection status.
+ /// 
+ /// Args:
+ ///   context (BuildContext): In Flutter, the `BuildContext` class represents the location of a widget
+ /// in the widget tree. It is used to access information about the location of the widget in the widget
+ /// tree, such as theme data, media queries, and more.
+ /// 
+ /// Returns:
+ ///   A GestureDetector widget is being returned, which contains a Container widget. The Container
+ /// widget has a BoxDecoration with conditional color based on the isAvailable and isSelected
+ /// variables. Inside the Container, there is a Text widget displaying the seatNumber with a style
+ /// based on the isAvailable variable.
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -55,6 +71,7 @@ class SeatWidget extends StatelessWidget {
   }
 }
 
+/// The SeatInfoWidget class displays information about different seat states in a row layout.
 class SeatInfoWidget extends StatelessWidget {
   const SeatInfoWidget({super.key});
 
