@@ -5,8 +5,8 @@ import 'package:flutter_application_1/core/utils/date_time_extension.dart';
 import 'package:flutter_application_1/feature/movie_booking/model/presentation/widget/date_widget.dart';
 import 'package:flutter_application_1/feature/movie_booking/model/presentation/widget/seat_widget.dart';
 import 'package:flutter_application_1/feature/movie_booking/model/presentation/widget/time_widget.dart';
+import 'package:flutter_application_1/feature/ticket_screen/my_ticket.dart'; // Import the ticket screen
 
-/// The above class is a StatefulWidget for a movie booking screen in Dart.
 class MovieBookingScreen extends StatefulWidget {
   const MovieBookingScreen({super.key});
 
@@ -14,13 +14,11 @@ class MovieBookingScreen extends StatefulWidget {
   State<MovieBookingScreen> createState() => _MovieBookingScreenState();
 }
 
-/// The `_MovieBookingScreenState` class is a state class that extends `State<MovieBookingScreen>`.
-/// Inside this class, there are three member variables:
-
 class _MovieBookingScreenState extends State<MovieBookingScreen> {
   final selectedSeat = ValueNotifier<List<String>>([]);
   final selectedDate = ValueNotifier<DateTime>(DateTime.now());
   final selectedTime = ValueNotifier<TimeOfDay?>(null);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,9 +70,6 @@ class _MovieBookingScreenState extends State<MovieBookingScreen> {
                       ),
                     ),
                     const Expanded(child: SizedBox()),
-
-                    /// lets make 8 seat horizontal
-                    /// and 6 seat vertical
                     for (int i = 1; i <= 6; i++) ...[
                       Row(
                         mainAxisSize: MainAxisSize.min,
@@ -110,7 +105,6 @@ class _MovieBookingScreenState extends State<MovieBookingScreen> {
                                 }
                               },
                             ),
-                            // make gap, and in the center wider gap
                             if (i != 8) SizedBox(width: j == 4 ? 16 : 4)
                           ]
                         ],
@@ -125,12 +119,6 @@ class _MovieBookingScreenState extends State<MovieBookingScreen> {
               );
             },
           ),
-          /// The above Dart code is creating a UI layout for a booking screen. It includes a selection
-          /// of date and time components using `ValueListenableBuilder` to update the selected date and
-          /// time. It also displays the total price based on the selected seats and provides a "Book
-          /// Now" button for booking. The layout is designed using `Container`, `Column`, `Row`,
-          /// `Text`, `ListView`, `InkWell`, and various styling properties like `decoration`,
-          /// `padding`, `alignment`, and `TextStyle`.
           Expanded(
             child: Container(
               decoration: BoxDecoration(
@@ -233,17 +221,40 @@ class _MovieBookingScreenState extends State<MovieBookingScreen> {
                           ],
                         ),
                       ),
-                      Expanded(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: AppColor.primaryColor,
-                            borderRadius: BorderRadius.circular(32),
-                          ),
-                          padding: const EdgeInsets.all(16),
-                          alignment: Alignment.center,
-                          child: Text(
-                            "Book Now",
-                            style: Theme.of(context).textTheme.headlineSmall,
+                      GestureDetector(
+                        onTap: () {
+                          if (selectedTime.value != null &&
+                              selectedSeat.value.isNotEmpty) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => TicketScreen(
+                                  date: selectedDate.value,
+                                  time: selectedTime.value!,
+                                  seats: selectedSeat.value,
+                                ),
+                              ),
+                            );
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text('Please select time and seat(s)'),
+                              ),
+                            );
+                          }
+                        },
+                        child: Expanded(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: AppColor.primaryColor,
+                              borderRadius: BorderRadius.circular(32),
+                            ),
+                            padding: const EdgeInsets.all(16),
+                            alignment: Alignment.center,
+                            child: Text(
+                              "Book Now",
+                              style: Theme.of(context).textTheme.headlineSmall,
+                            ),
                           ),
                         ),
                       ),
@@ -253,6 +264,12 @@ class _MovieBookingScreenState extends State<MovieBookingScreen> {
               ),
             ),
           ),
+        ],
+      ),
+    );
+  }
+}
+
         ],
       ),
     );
