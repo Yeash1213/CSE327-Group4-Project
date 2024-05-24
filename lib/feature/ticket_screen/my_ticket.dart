@@ -1,6 +1,7 @@
-// ticket_screen.dart
 import 'package:flutter/material.dart';
 
+/// The `TicketScreen` class in Dart represents a screen displaying ticket details including date, time,
+/// and seat information.
 class TicketScreen extends StatelessWidget {
   final DateTime date;
   final TimeOfDay time;
