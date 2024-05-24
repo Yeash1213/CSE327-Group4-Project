@@ -4,9 +4,7 @@ import 'package:flutter_application_1/feature/home/presentation/widget/category_
 import 'package:flutter_application_1/feature/home/presentation/widget/now_playing_movie_widget.dart';
 import 'package:flutter_application_1/feature/home/presentation/widget/section_title_widget.dart';
 import 'package:flutter_application_1/feature/home/presentation/widget/upcoming_movie_widget.dart';
-
-/// The `HomeScreen` class in the provided Dart code is a StatelessWidget that represents the main
-/// screen of a movie ticket booking application.
+import 'package:flutter_application_1/feature/home/presentation/widget/customer_support_widget.dart'; // Import the new widget
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -19,9 +17,6 @@ class HomeScreen extends StatelessWidget {
           top: MediaQuery.of(context).padding.top,
           bottom: MediaQuery.of(context).padding.bottom,
         ),
-         /// The `child` property of the `Column` widget in the `build` method of the `HomeScreen` class
-        /// is defining the layout structure of the home screen of a movie ticket booking application.
-        /// Here's a breakdown of what each child widget is doing:
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -69,6 +64,8 @@ class HomeScreen extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             const UpcomingMovieWidget(),
+            const SizedBox(height: 16),
+            const CustomerSupportWidget(), // Add the new widget here
           ],
         ),
       ),
