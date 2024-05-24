@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/core/route/app_route_name.dart';
 import 'package:flutter_application_1/feature/home/presentation/widget/banner_widget.dart';
 import 'package:flutter_application_1/feature/home/presentation/widget/category_widget.dart';
 import 'package:flutter_application_1/feature/home/presentation/widget/now_playing_movie_widget.dart';
@@ -14,6 +15,17 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Cine Ticket'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.favorite),
+            onPressed: () {
+              Navigator.pushNamed(context, AppRouteName.wishlist);
+            },
+          ),
+        ],
+      ),
       body: SingleChildScrollView(
         padding: EdgeInsets.only(
           top: MediaQuery.of(context).padding.top,
