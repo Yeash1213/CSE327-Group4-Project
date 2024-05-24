@@ -3,4 +3,5 @@ class AppRouteName {
   static const String home = "/";
   static const String movieDetail = "/movie-detail";
   static const String movieBooking = "/movie-booking";
+  static const String wishlist = '/wishlist';
 }

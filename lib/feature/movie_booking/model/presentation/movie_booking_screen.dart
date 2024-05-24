@@ -270,8 +270,3 @@ class _MovieBookingScreenState extends State<MovieBookingScreen> {
   }
 }
 
-        ],
-      ),
-    );
-  }
-}
